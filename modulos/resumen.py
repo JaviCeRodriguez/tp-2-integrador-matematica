@@ -1,5 +1,5 @@
-def validar_rutas(datos):
-    if not datos:
+def validar_rutas(rutas):
+    if not rutas:
         print("🚨\nError: No hay datos cargados.")
         return
 
@@ -27,4 +27,4 @@ if __name__ == "__main__":
     from datos import obtener_rutas
 
     rutas = obtener_rutas()
-    validar_rutas(datos=rutas)
+    validar_rutas(rutas=rutas)
