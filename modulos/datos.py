@@ -26,7 +26,7 @@ def obtener_rutas():
     return rutas
 
 
-def obtener_mapa(datos):
+def obtener_mapa(rutas):
     grafo = {}
 
     def agregar_conexion(origen, destino, tiempo):
@@ -60,5 +60,6 @@ def obtener_mapa(datos):
 
 if __name__ == "__main__":
     rutas = obtener_rutas()
+    print("Rutas:", rutas)
     mapa = obtener_mapa(rutas)
-    print("datos", mapa)
+    print("Mapa (Grafo):", mapa)
