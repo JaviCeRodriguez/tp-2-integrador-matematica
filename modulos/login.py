@@ -10,10 +10,12 @@ def iniciar_sesion():
     contrasena = input("Ingrese su contraseña: ")
 
     if email == usuario["email"] and contrasena == usuario["contrasena"]:
-        print(f"\n✅ Bienvenido {email.split("@")[0]}!")
+        print(f"\n✅ Bienvenido {email.split('@')[0]}!")
         print("➡️  Acceso concedido a los datos del sistema")
+        return True
     else:
         print("\n🚨 Error: Credenciales inválidas. Verifique su email y contraseña.")
+        return False
 
 
 if __name__ == "__main__":
