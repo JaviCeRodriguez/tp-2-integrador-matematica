@@ -10,9 +10,9 @@ TPI 2 de Matemática, UTN TUPaD
 tp-2-integrador-matematica/
 │
 ├── main.py
-├── modules/
+├── modulos/
 │   ├── login.py          # Unidad 1 - Simulación de login
-│   ├── resumen.py        # Unidad 3 - Estadística descriptiva
+│   ├── resumen.py        # Unidad 3 - Lógica aplicada a rutas
 │   ├── mapa.py           # Unidad 6 - Algoritmos de ruta (grafos)
 │   └── datos.py          # Fuente de datos utilizada por los módulos
 │
@@ -24,15 +24,18 @@ tp-2-integrador-matematica/
 ## 🧩 Parte Teórica
 
 ### Unidad 1 – Lógica y Validaciones
+
 Se trabaja el concepto de **expresiones lógicas y condicionales** a través de una **simulación de inicio de sesión**.  
 El programa solicita un **correo electrónico y contraseña**, verificando su validez mediante comparaciones lógicas.
 
 **Conceptos aplicados:**
+
 - Estructuras condicionales (`if`, `else`)
 - Expresiones booleanas
 - Control de flujo y mensajes de error
 
 **Ejemplo simplificado del código:**
+
 ```python
 def iniciar_sesion():
     usuario = "usuario@ejemplo.com"
@@ -49,73 +52,60 @@ def iniciar_sesion():
 
 ---
 
-### Unidad 3 – Estadística Descriptiva
-Se desarrolla un módulo para **analizar un conjunto de datos numéricos**, calculando medidas estadísticas como **promedio, máximo, mínimo y desviación estándar**.  
-La información proviene del archivo `datos.py`.
+### Unidad 3 – Lógica aplicada a rutas
+
+Se aplican **operadores lógicos (AND, OR, NOT)** para validar propiedades de las rutas como si son turísticas, si fueron recorridas, o si pasan por CABA.
 
 **Conceptos aplicados:**
-- Listas y recorrido con bucles
-- Funciones matemáticas básicas
-- Cálculo de promedio, varianza y desviación estándar
+
+- Operadores lógicos (AND, OR, NOT)
+- Expresiones booleanas compuestas
+- Validación condicional de datos
 
 **Ejemplo simplificado:**
-```python
-from modules.datos import valores
 
-def resumen_datos():
-    promedio = sum(valores) / len(valores)
-    print(f"Promedio: {promedio}")
+```python
+if datos["turistica"] and not datos["pasa_por_caba"]:
+    print("✅ Es una ruta turística que NO pasa por CABA.")
 ```
 
 ---
 
 ### Unidad 6 – Algoritmos de Rutas y Grafos
-Se simula un sistema de **recomendación de rutas** similar a los utilizados por Google Maps.  
-El algoritmo analiza las conexiones entre nodos (lugares) y determina el camino más corto disponible.
+
+Se simula un sistema de **análisis y recomendación de rutas** usando grafos ponderados.  
+El módulo analiza rutas existentes y utiliza el **algoritmo de Dijkstra** para encontrar el camino más rápido entre ciudades.
 
 **Conceptos aplicados:**
-- Representación de grafos mediante diccionarios
-- Búsqueda de rutas (BFS/DFS o Dijkstra)
-- Validación de rutas y manejo de errores
 
-**Ejemplo simplificado:**
-```python
-def generar_ruta(origen, destino, mapa):
-    if origen not in mapa or destino not in mapa:
-        print("Ruta no válida.")
-        return
-    print(f"Ruta desde {origen} hasta {destino}: {' -> '.join(mapa[origen])}")
-```
+- Representación de grafos mediante diccionarios
+- Algoritmo de Dijkstra para caminos más cortos
+- Análisis de rutas (tiempo, cantidad de lugares, rutas más rápidas)
+
+**Funcionalidades:**
+
+- Calcula tiempos totales de trayectos
+- Identifica la ruta más larga y la que visita más lugares
+- Encuentra la mejor ruta existente
+- Genera nuevas rutas recomendadas usando Dijkstra
 
 ---
 
 ## 🧠 Parte Práctica
 
-El programa principal (`main.py`) guía al usuario paso a paso desde la terminal.
+El programa principal (`main.py`) presenta un menú interactivo que requiere iniciar sesión primero.
 
-**Ejemplo de flujo:**
-1. Inicio del programa  
-2. Simulación de login  
-3. Acceso al menú principal  
-4. Elección entre:
-   - Ver resumen estadístico
-   - Generar ruta recomendada
-   - Salir del sistema
+**Flujo del programa:**
 
-**Ejemplo de ejecución:**
-```bash
-$ python main.py
+1. Menú principal con opciones
+2. **Unidad 1**: Inicio de sesión (requerido para acceder a otras opciones)
+3. **Unidad 3**: Validación lógica de rutas
+4. **Unidad 6**: Análisis de rutas con grafos y Dijkstra
 
-=== BIENVENIDO AL SISTEMA ===
-Ingrese su correo: usuario@ejemplo.com
-Ingrese su contraseña: 1234
-✅ Bienvenido al sistema.
+**Credenciales de acceso:**
 
-Seleccione una opción:
-1. Ver resumen estadístico
-2. Recomendación de ruta
-3. Salir
-```
+- Email: `javier@mate.com`
+- Contraseña: `12345abc`
 
 ---
 
